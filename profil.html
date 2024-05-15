@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil</title>
+  <link rel="stylesheet" href="prof.css">
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn" onclick="window.history.back()">Kembali</button>
+    <div class="profile">
+      <img src="profil.jpg" alt="Foto Profil" class="profile-picture" id="profile-pic">
+      <h1>Profil Pengguna</h1>
+      <div class="profile-info">
+        <p id="username">TiaraAndini7</p>
+      </div>
+      <div class="profile-info">
+        <label for="full_name">Nama Lengkap:</label>
+        <p id="full_name">TiaraAndini</p>
+      </div>
+      <div class="profile-info">
+        <label for="place_of_birth">Tempat Lahir:</label>
+        <p id="place_of_birth">New York City</p>
+      </div>
+      <div class="profile-info">
+        <label for="date_of_birth">Tanggal Lahir:</label>
+        <p id="date_of_birth">1 Januari 2001</p>
+      </div>
+      <div class="profile-info">
+        <label for="domicile">Domisili:</label>
+        <p id="domicile">Los Angeles</p>
+      </div>
+      <div class="profile-info">
+        <label for="gender">Jenis Kelamin:</label>
+        <p id="gender">Perempuan</p>
+      </div>
+      <div class="profile-info">
+        <label for="phone_number">Nomor Telepon:</label>
+        <p id="phone_number">+62-853-9457-6005</p>
+      </div>
+      <div class="profile-info">
+        <label for="email">Email:</label>
+        <p id="email">tiara_an@gmail.com</p>
+      </div>
+      <div class="profile-info">
+        <label for="address">Alamat:</label>
+        <p id="address">123 Jalan Utama, Los Angeles, CA</p>
+      </div>
+      <input type="file" id="profile-image" accept="image/*">
+      <button class="edit-btn" onclick="uploadProfileImage()">Unggah Foto</button>
+      <button class="delete-btn">Hapus</button>
+    </div>
+  </div>
+
+  <script>
+    function uploadProfileImage() {
+      const fileInput = document.getElementById('profile-image');
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        document.getElementById("profile-pic").src = event.target.result;
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      } else {
+        alert('Silakan pilih file gambar.');
+      }
+    }
+  </script>
+</body>
+</html>

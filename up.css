@@ -1,0 +1,85 @@
+/* General styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .back-btn {
+    background-color: #70aae7;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styles */
+  .add-recipe-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-recipe-form h2 {
+    margin-top: 0;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-recipe-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #4b4b4b;
+  }
+  
+  .add-recipe-form input[type="text"],
+  .add-recipe-form textarea,
+  .add-recipe-form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  .add-recipe-form button {
+    background-color: #70aae7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .add-recipe-form button:hover {
+    background-color: #70aae7;
+  }
+  
+  /* Optional: style file input */
+  .add-recipe-form input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+  }
+  
+  /* Optional: adjust file input label */
+  .add-recipe-form label[for="recipe-video"] {
+    display: block;
+    margin-top: 20px;
+  }

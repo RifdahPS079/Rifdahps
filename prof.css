@@ -1,0 +1,101 @@
+/* General styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Container styles */
+.container {
+    background-color: #f8f9fa; /* Warna abu-abu lebih terang */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan lebih jelas */
+    padding: 30px;
+    max-width: 600px; /* Sedikit lebih besar */
+    width: 100%;
+}
+
+/* Profile styles */
+.profile {
+    text-align: center;
+}
+
+.profile h1 {
+    margin-bottom: 20px;
+    font-size: 28px; /* Ukuran huruf lebih besar */
+    color: #333;
+}
+
+.profile-info {
+    margin-bottom: 15px;
+}
+
+.profile-info label {
+    font-weight: bold;
+    color: #555; /* Warna label yang lebih lembut */
+    text-align: left; /* Rata kiri teks label */
+    width: 130px; /* Lebar label */
+    display: inline-block; /* Agar label dan info tidak turun ke bawah */
+}
+
+.profile-info p {
+    margin: 0;
+    color: #333; /* Warna teks yang lebih gelap */
+    text-align: left; /* Rata kiri teks info */
+    display: inline-block; /* Agar label dan info tidak turun ke bawah */
+}
+
+.profile-picture {
+    margin: 0 auto; /* Pusatkan gambar profil */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Pastikan gambar proporsional */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Bayangan lebih jelas */
+}
+
+.edit-btn, .delete-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #70aae7; 
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #4b4b4b; 
+    color: #fff;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    background-color: #537daa; /* Warna biru yang lebih tua */
+}
+.profile-info {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-info label {
+    font-weight: bold;
+    color: #555;
+    width: 130px;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #333;
+}

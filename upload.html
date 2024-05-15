@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Resep Makanan</title>
+  <link rel="stylesheet" href="up.css">
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn" onclick="window.history.back()">Kembali</button>
+    <div class="add-recipe-form">
+      <h2>Tambah Resep Makanan</h2>
+      <form id="recipe-form">
+        <label for="recipe-name">Nama Resep:</label>
+        <input type="text" id="recipe-name" name="recipe-name" required>
+
+        <label for="recipe-description">Deskripsi:</label>
+        <textarea id="recipe-description" name="recipe-description" required></textarea>
+
+        <label for="recipe-image">Gambar Resep:</label>
+        <input type="file" id="recipe-image" name="recipe-image" accept="image/*" required>
+
+        <button type="submit">Tambah Resep</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
