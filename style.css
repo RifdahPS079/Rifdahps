@@ -1,18 +1,18 @@
-*{
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
-
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body{
+body {
     width: 100%;
     min-height: 100vh;
     background: #f8f8f8;
 }
 
-header{
+header {
     height: 60px;
     width: 100%;
     background: #222121;
@@ -20,7 +20,8 @@ header{
     display: flex;
     align-items: center;
 }
-.container{
+
+.container {
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -32,39 +33,44 @@ header{
     display: flex;
     align-items: center;
     margin-right: auto;
-    margin-left: -25px;
 }
-.nav-list{
+
+.nav-list {
     display: none;
 }
 
-nav ul li{
-    list-style: none;
-    display: inline;
-    margin-right: 20px;
-    font-weight: 550;
-    
-}
-
-.nav-log li {
+nav ul li {
     list-style: none;
     display: inline;
     margin-right: 20px;
     font-weight: 550;
 }
 
+/* Link styles for nav-log */
 .nav-log li a {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #555;
-    color: #fff;
+    background: linear-gradient(to right, #e7722f, #b16238);
+    color: white;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .nav-log li a:hover {
-    background-color: #333;
+    background: linear-gradient(to right, #60957d, #43757a) ;
+    color: white;
+}
+
+/* Link styles for nav-list */
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #e7782f;
 }
 
 #login-button,
@@ -81,15 +87,15 @@ nav ul li{
 
 #login-button:hover,
 #daftar-button:hover {
-    background-color: #333;
+    background-color: #834141;
 }
 
-.logo{
+.logo {
     font-size: 24px;
     margin-left: 100px;
 }
 
-.hero{
+.hero {
     width: 100%;
     height: auto;
     background: url(images/laber.jpg);
@@ -102,41 +108,43 @@ nav ul li{
     margin-bottom: 20px;
 }
 
-.hero h2{
+.hero h2 {
     font-size: 36px;
     margin-bottom: 10px;
 }
-.cari-box{
+
+.search-box {
     max-width: 550px;
     margin: 15px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: red;
+    margin-left: 500px;
 }
 
-.cari-box input{
+.search-box input {
     width: 70%;
     padding: 10px;
     outline: none;
     border: 0;
     border-radius: 5px 0 0 5px;
     font-size: 1rem;
-    border: 1px solid rgb(245, 37,9);
+    border: 1px solid rgb(231, 99, 28);
 }
 
-.cari-box button{
+.search-box button {
     padding: 10px 20px;
     outline: none;
     border: 0;
     border-radius: 0px 5px 5px 0;
     font-size: 1rem;
-    background: rgb(245, 37,9);
-    color: #fff;
+    background: linear-gradient(to right, #e7782f, #a1580b);
+    color: white;
     cursor: pointer;
+     
 }
 
-.recipes{
+.recipes {
     padding: 50px 0;
 }
 
@@ -152,13 +160,13 @@ nav ul li{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.recipes h1{
+.recipes h1 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 28px;
 }
 
-.recipe-section{
+.recipe-section {
     width: 90%;
     margin: 0 auto;
     display: grid;
@@ -166,7 +174,7 @@ nav ul li{
     column-gap: 10px;
 }
 
-.recipe-card{
+.recipe-card {
     background: #fff;
     margin: 30px 10px;
     border-radius: 8px;
@@ -176,18 +184,18 @@ nav ul li{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.recipe-card img{
+.recipe-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.recipe-card h2{
+.recipe-card h2 {
     font-size: 22px;
     padding: 20px;
 }
 
-.recipe-card p{
+.recipe-card p {
     font-size: 18px;
     padding: 20px;
 }
@@ -202,8 +210,7 @@ nav ul li{
     margin-bottom: 10px;
 }
 
-
-.recipe-card a{
+.recipe-card a {
     display: block;
     text-align: center;
     text-decoration: none;
@@ -213,21 +220,20 @@ nav ul li{
     cursor: pointer;
 }
 
-footer{
+footer {
     background: #333;
     padding: 20px 0;
     color: #fff;
     text-align: center;
 }
 
-.menu-icon{
+.menu-icon {
     font-size: 24px;
     padding: 20px;
     text-align: right;
     cursor: pointer;
     display: block;
 }
-
 
 #kembali-ke-daftar {
     background-color: #ddd;
@@ -238,7 +244,7 @@ footer{
     cursor: pointer;
     margin-top: 20px;
 }
- 
+
 #simpan-resep {
     background-color: #354a61;
     color: #fff;
@@ -249,23 +255,21 @@ footer{
     margin-top: 20px;
 }
 
-@media only screen and (min-width: 768px){
-    .menu-icon{
+@media only screen and (min-width: 768px) {
+    .menu-icon {
         display: none;
     }
-    .nav-list{
+    .nav-list {
         display: block;
-    
     }
-    
 }
 
-@media only screen and (max-width: 768px){
-    .hero h2{
+@media only screen and (max-width: 768px) {
+    .hero h2 {
         font-size: 28px;
     }
     
-    .hero p{
+    .hero p {
         font-size: 15px;
     }
 }

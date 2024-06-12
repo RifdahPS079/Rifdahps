@@ -1,9 +1,9 @@
 <?php
 // Koneksi ke database
-$servername = "localhost"; // Ganti dengan hostname server database Anda
-$username = "root"; // Ganti dengan username database Anda
-$password = ""; // Ganti dengan password database Anda
-$dbname = "proyek_web"; // Ganti dengan nama database Anda
+$servername = "localhost"; 
+$username = "root"; 
+$password = ""; 
+$dbname = "proyek_web"; 
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
     <title>Recipe Website - By Web Coding</title>
 </head>
 <body>
-    <header>
+<header>
         <div class="container"> 
             <nav>
                 <ul class="nav-log">
@@ -39,8 +39,8 @@ $result = mysqli_query($conn, $sql);
             <h1 class="logo">FoodRecipes</h1>
             <nav>
                 <ul class="nav-list">
-                    <li>Home</li>                
-                    <li><a href="tentang.html">Tentang</a></li>
+                    <li><a href="index.php">Home</a></li>              
+                    <li><a href="tentang.php">Tentang</a></li>
                     <li><a href="unggah_resep.php">Unggah Resep</a></li>
                     <li><a href="profil.php">Profil</a></li>
                 </ul>
@@ -69,11 +69,7 @@ $result = mysqli_query($conn, $sql);
                     echo '<div class="recipe-card">';
                     echo '<img src="uploads/' . $row['gambar'] . '" alt="' . $row['nama_resep'] . '">';
                     echo '<h2>' . $row['nama_resep'] . '</h2>';
-                    echo '<h3>',"Bahan", '</h3>';
-                    echo '<p>' . substr($row['bahan_bahan'], 0, 500) . '...</p>';
-                    echo '<h3>',"Langkah - langkah", '</h3>';
-                    echo '<p>' . substr($row['langkah_langkah'], 0, 500) . '...</p>';
-                    echo '<a href="#">Lihat Resep</a>';
+                    echo '<a href="detail_resep.php?id=' . $row['id'] . '">Lihat Resep</a>';
                     echo '</div>';
                 }
             } else {
