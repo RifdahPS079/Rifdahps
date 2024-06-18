@@ -13,7 +13,16 @@ if (!$conn) {
 }
 
 // Ambil data dari database dan tampilkan
-$sql = "SELECT * FROM unggah_resep";
+
+
+
+if (isset($_GET['cari'])) {
+    $resep = $_GET['cari'];
+    $sql = "SELECT * FROM unggah_resep WHERE nama_resep LIKE '%$resep%'";
+
+} else {
+    $sql = "SELECT * FROM unggah_resep";
+}
 $result = mysqli_query($conn, $sql);
 
 ?>
@@ -42,6 +51,9 @@ $result = mysqli_query($conn, $sql);
                     <li><a href="index.php">Home</a></li>              
                     <li><a href="tentang.php">Tentang</a></li>
                     <li><a href="unggah_resep.php">Unggah Resep</a></li>
+                    <?php if (isset($_SESSION['user_id'])) {
+                        echo "<li><a href='resep_disimpan.php?user_id=".$_SESSION['user_id']."'>Unggah Resep</a></li>";
+                    } ?>
                     <li><a href="profil.php">Profil</a></li>
                 </ul>
             </nav>
@@ -53,8 +65,8 @@ $result = mysqli_query($conn, $sql);
             <h2>Selamat Datang Di Dunia Resep</h2>
             <p>Temukan Resep Yang Kamu Inginkan</p>
 
-            <form action="#" class="search-box">
-                <input type="text" placeholder="Cari Resep">
+            <form action="#" class="search-box" >
+                <input type="text" placeholder="Cari Resep" name="cari">
                 <button type="submit">Cari</button>
             </form>
         </div>
