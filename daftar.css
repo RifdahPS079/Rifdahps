@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("daftar.jpg"); /* Replace with your image URL */
+  background-image: url("images/daftar.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
 }
