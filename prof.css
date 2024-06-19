@@ -1,109 +1,137 @@
-/* General styles */
+/* prof.css */
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5;
 }
+
 header {
-    height: 60px;
-    width: 100%;
-    background: #222121;
-    color: #fff;
+    background-color: #1e1616;
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-/* Container styles */
-.container {
-    background-color: #f8f9fa; /* Warna abu-abu lebih terang */
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan lebih jelas */
-    padding: 30px;
-    max-width: 600px; /* Sedikit lebih besar */
-    width: 100%;
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Profile styles */
-.profile {
-    text-align: center;
+nav ul li {
+    display: inline;
 }
 
-.profile h1 {
-    margin-bottom: 20px;
-    font-size: 28px; /* Ukuran huruf lebih besar */
-    color: #333;
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    display: inline-block;
+    transition: color 0.3s ease;
 }
 
-.profile-info {
-    margin-bottom: 15px;
+nav ul li a:hover {
+    color: #e7782f;
 }
 
-.profile-info label {
-    font-weight: bold;
-    color: #555; 
-    text-align: left; 
-    width: 130px; 
-    display: inline-block; /* Agar label dan info tidak turun ke bawah */
+
+.logo {
+    font-size: 24px;
+    float: left;
 }
 
-.profile-info p {
-    margin: 0;
-    color: #333; 
-    text-align: left; /* Rata kiri teks info */
-    display: inline-block; /* Agar label dan info tidak turun ke bawah */
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
 }
 
 .profile-picture {
-    margin: 0 auto; /* Pusatkan gambar profil */
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    object-fit: cover; 
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Bayangan lebih jelas */
+    margin-bottom: 20px;
 }
 
-.edit-btn, .delete-btn {
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.edit-btn {
-    background-color: #70aae7; 
-    color: #fff;
-}
-
-.delete-btn {
-    background-color: #4b4b4b; 
-    color: #fff;
-}
-
-.edit-btn:hover, .delete-btn:hover {
-    background-color: #537daa; 
-}
 .profile-info {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
+    margin-bottom: 10px;
 }
 
-.profile-info label {
+.back-btn {
+    margin-bottom: 20px;
+}
+
+.edit-btn,
+.delete-btn,
+.recipe-btn,
+.saved-recipes-btn {
+    background-color: #925518;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.edit-btn:hover,
+.delete-btn:hover,
+.recipe-btn:hover,
+.saved-recipes-btn:hover {
+    background-color: #15725b;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
     font-weight: bold;
-    color: #555;
-    width: 130px;
 }
 
-.profile-info p {
-    margin: 0;
-    color: #333;
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: calc(100% - 130px);
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #1c8888;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #bd8547;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
 }
