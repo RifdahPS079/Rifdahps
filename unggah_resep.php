@@ -20,6 +20,7 @@
           $kategori = $_POST['recipe-category'];
           $bahan_bahan = $_POST['recipe-Bahan-Bahan'];
           $langkah_langkah = $_POST['recipe-Langkah-Langkah'];
+          $user_id = $_SESSION['user_id']; // Ambil user_id dari sesi
 
           // Check if uploads directory exists and has write permissions
           if (!is_dir("uploads")) {
