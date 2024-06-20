@@ -77,7 +77,7 @@ mysqli_close($conn);
             <p><?php echo nl2br($unggah_resep['langkah_langkah']); ?></p>
             
             <a href="simpan_resep.php" class="btn-primary">Simpan Resep</a>
-            <a href="resep_saya.php" class="btn-primary">Kembali ke Daftar Resep</a>
+            <a href="index.php" class="btn-primary">Kembali ke Daftar Resep</a>
         <?php else: ?>
             <p>Resep tidak ditemukan</p>
         <?php endif; ?>
