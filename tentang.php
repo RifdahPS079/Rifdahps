@@ -111,42 +111,32 @@
                 <img src="images/minum1.jpg" alt="Es Teh">
                 <h3>Es Teh</h3>
                 <p>Es teh adalah minuman teh yang disajikan dengan es batu, sering ditambahkan gula atau madu untuk rasa manis untuk rasa yang pas .</p>
-                <a href="#">
-                    <button class="link-button">Lihat Resep</button>
-                </a>
+                <a href="#">Lihat Resep</a>
 
             </div>
             <div class="recipe-card">
                 <img src="images/minum2.jpg" alt="Jus Alpukat">    
                 <h3>Jus Alpukat</h3>
                 <p>Jus alpukat dibuat dengan mencampur alpukat segar, susu kental manis, dan es batu untuk rasa yang lembut dan menyegarkan.</p>
-                <a href="#">
-                    <button class="link-button">Lihat Resep</button>
-                </a>
+                <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
                 <img src="images/minum3.jpg" alt="Cendol">
                 <h3>Cendol</h3>
                 <p>Cendol adalah minuman tradisional yang terbuat dari tepung beras, santan, gula merah, dan es batu untuk rasa yang  menyegarkan.</p>
-                <a href="#">
-                    <button class="link-button">Lihat Resep</button>
-                </a>
+                <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
                 <img src="images/minum4.jpg" alt="Es Buah">
                 <h3>Es Buah</h3>
                 <p>Es buah terdiri dari berbagai macam buah segar yang dicampur dengan sirup manis dan es batu yang lebih segar dinikmati.</p>
-                <a href="#">
-                    <button class="link-button">Lihat Resep</button>
-                </a>
+                <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
                 <img src="images/minum5.jpg" alt="Kopi Susu">
                 <h3>Kopi Susu</h3>
                 <p>Kopi susu adalah minuman kopi yang dicampur dengan susu untuk rasa yang kaya dan creamy,bisa dicampur es batu.</p>
-                <a href="#">
-                    <button class="link-button">Lihat Resep</button>
-                </a>
+                <a href="#">Lihat Resep</a>
             </div>
         </div>
     </section>
