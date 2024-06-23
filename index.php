@@ -1,3 +1,5 @@
+<!-- Nurul Ulmi Mustafa= Membuat index.php-->
+ 
 <?php
 // Koneksi ke database
 $servername = "localhost"; 
