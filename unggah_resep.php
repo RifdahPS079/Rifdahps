@@ -1,3 +1,4 @@
+<!-- Rifdah Pritama Saputri = mengedit unggah resep -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -62,6 +63,12 @@
                   $db_password = "";
                   $db_name = "proyek_web"; // Update with your database name
 
+                  $id = $_GET['id'];
+
+                  $query = mysqli_query($conn, "SELECT * FROM umggah_resep WHERE id = $id");
+                  $detail = mysqli_fetch_assoc($query);
+                  
+
                   // Create connection
                   $conn = new mysqli($servername, $db_username, $db_password, $db_name);
 
@@ -113,6 +120,7 @@
       <form id="recipe-form" method="POST" enctype="multipart/form-data">
         <label for="recipe-name">Nama Resep:</label>
         <input type="text" id="recipe-name" name="recipe-name" required>
+        <value="?>=$detail['nama_resep']?>">
 
         <label for="recipe-category">Kategori:</label>
         <select id="recipe-category" name="recipe-category" required>
