@@ -44,7 +44,7 @@
             <div class="recipe-card">
                 <img src="images/gam1.jpg" alt="Nasi Goreng">
                 <h2>Nasi Goreng</h2>
-                <p>Nasi goreng adalah makanan berupa nasi yang digoreng dan dicampur dalam minyak goreng, margarin, atau mentega.</p>
+                <p>Nasi goreng adalah makanan berupa nasi yang digoreng dan dicampur dalam minyak goreng, margarin, atau mentega yang membuat harum.</p>
                 <a href="detail_resep.html">Lihat Resep</a>
             </div>
             <div class="recipe-card">
@@ -56,7 +56,7 @@
             <div class="recipe-card">
                 <img src="images/gam3.webp" alt="Bakso">
                 <h2>Bakso</h2>
-                <p>Bakso adalah produk pangan yang terbuat dari bahan utama daging yang dilumatkan, dicampur dengan bahan lain.</p>
+                <p>Bakso adalah produk pangan yang terbuat dari bahan utama daging yang dilumatkan, dicampur dengan bahan lain yang dapat memabuat bakso lehih lezat.</p>
                 <a href="detail_resep3.html">Lihat Resep</a>
             </div>
             <div class="recipe-card">
@@ -68,7 +68,7 @@
             <div class="recipe-card">
                 <img src="images/gam5.webp" alt="Orek Tempe">
                 <h2>Orek Tempe</h2>
-                <p>Orek tempe berasal dari tanah Jawa ini adalah olahan tempe yang dipotong-potong kecil dan dimasak dengan gula serta kecap.</p>
+                <p>Orek tempe berasal dari tanah Jawa ini adalah olahan tempe yang dipotong-potong kecil dan dimasak dengan gula serta kecap menjadi lebih manis.</p>
                 <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
@@ -80,7 +80,7 @@
             <div class="recipe-card">
                 <img src="images/gam7.jpg" alt="Terong Balado">
                 <h2>Terong Balado</h2>
-                <p>Terong balado adalah hidangan Minangkabau yang berupa terong dimasak dengan bumbu cabai merah balado yang pedas.</p>
+                <p>Terong balado adalah hidangan Minangkabau yang berupa terong dimasak dengan bumbu cabai merah balado yang pedas sampai di lidah.</p>
                 <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
@@ -98,7 +98,7 @@
             <div class="recipe-card">
                 <img src="images/gam10.jpg" alt="Mie Titi">
                 <h2>Mie Titi</h2>
-                <p>Mie Titi ini merupakan sajian mie yang sangat mirip dengan masakan Tionghoa “Ifumie”, namun versi mie yang mirip lidi.</p>
+                <p>Mie Titi ini merupakan sajian mie yang sangat mirip dengan masakan Tionghoa “Ifumie”, namun versi mie yang mirip lidi dan kriuk.</p>
                 <a href="#">Lihat Resep</a>
             </div>
         </div>
@@ -129,46 +129,54 @@
             <div class="recipe-card">
                 <img src="images/minum4.jpg" alt="Es Buah">
                 <h3>Es Buah</h3>
-                <p>Es buah terdiri dari berbagai macam buah segar yang dicampur dengan sirup manis dan es batu yang lebih segar dinikmati.</p>
+                <p>Es buah terdiri dari berbagai macam buah segar yang dicampur dengan sirup manis dan es batu yang lebih segar dinikmati saat cuaca panas.</p>
                 <a href="#">Lihat Resep</a>
             </div>
             <div class="recipe-card">
                 <img src="images/minum5.jpg" alt="Kopi Susu">
                 <h3>Kopi Susu</h3>
-                <p>Kopi susu adalah minuman kopi yang dicampur dengan susu untuk rasa yang kaya dan creamy,bisa dicampur es batu.</p>
+                <p>Kopi susu adalah minuman kopi yang dicampur dengan susu untuk rasa yang kaya dan creamy,bisa dicampur es batu ataupun panas lebih nikmat .</p>
                 <a href="#">Lihat Resep</a>
             </div>
         </div>
     </section>
 
-    <section class="hero">
-        <div class="hero-section">
-            <h2>Hasil Pencarian Resep</h2>
-            <?php
-                if(isset($_GET['keyword'])) {
-                    $keyword = $_GET['keyword'];
-                    echo "<p>Hasil pencarian untuk: $keyword</p>";
-                    // Di sini kamu bisa menulis kode untuk menampilkan hasil pencarian berdasarkan $keyword
-                } else {
-                    echo "<p>Tugas WEB AKHIR .</p>";
-                }
-            ?>
-        </div>
+
+
     </section>
 
     <section class="about">
-        <div class="Tentang Website FoodRecipes">
-            <h2>Tentang FoodRecipes</h2>
-            <div class="about-content">
-                <img src="uploads/gambarTentang.jpg" alt="Tentang Website FoodRecipes">
-                <div class="about-text">
-                    <p>"FoodRecipes" menyediakan platform komprehensif bagi para pecinta makanan untuk menemukan, dan melihat resep, sehingga memudahkan pengguna untuk menjelajahi dan menikmati pengalaman kuliner baru.</p>
-                    <p>Dengan antarmuka yang ramah pengguna dan fitur yang lengkap, "FoodRecipes" bertujuan menjadi tujuan utama bagi siapa saja yang mencari inspirasi memasak dan ingin berbagi kreasi kuliner mereka dengan komunitas yang lebih luas.</p>
-                    <p>Platform ini tidak hanya membantu pengguna menemukan resep baru tetapi juga memungkinkan mereka berkontribusi dengan mengunggah resep mereka sendiri, menciptakan ekosistem kuliner yang dinamis dan interaktif.</p>
-                </div>
+    <div class="Tentang Website FoodRecipes">
+        <h2>Tentang FoodRecipes</h2>
+        <div class="container">
+        <div class="recipe-card">
+                <img src="images/rifdah.jpg" alt="Image 1">
+                <h3>RIFDAH PRITAMA SAPUTRI</h3>
+                <p>RIFDAH PRITAMA SAPUTRI</p>
+                <a href="#">221011079</a>
+            </div>
+            <div class="recipe-card">
+                <img src="images/ulmi.jpg" alt="NURUL ULMI MUSTAFA">
+                <h3>NURUL ULMI MUSTAFA</h3>
+                <p>NURUL ULMI MUSTAFA</p>
+                <a href="#">221011043</a>
+            </div>
+            <div class="recipe-card">
+                <img src="images/sunset.jpg" alt="Image 3">
+                <h3>NADA ISTIANA HABIBI</h3>
+                <p>NADA ISTIANA HABIBI</p>
+                <a href="#">221011038</a>
             </div>
         </div>
-    </section>
+            <div class="about-text">
+                <p>"FoodRecipes" menyediakan platform komprehensif bagi para pecinta makanan untuk menemukan, dan melihat resep, sehingga memudahkan pengguna untuk menjelajahi dan menikmati pengalaman kuliner baru.</p>
+                <p>Dengan antarmuka yang ramah pengguna dan fitur yang lengkap, "FoodRecipes" bertujuan menjadi tujuan utama bagi siapa saja yang mencari inspirasi memasak dan ingin berbagi kreasi kuliner mereka dengan komunitas yang lebih luas.</p>
+                <p>Platform ini tidak hanya membantu pengguna menemukan resep baru tetapi juga memungkinkan mereka berkontribusi dengan mengunggah resep mereka sendiri, menciptakan ekosistem kuliner yang dinamis dan interaktif.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
     <footer>
         <div>
