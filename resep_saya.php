@@ -65,7 +65,7 @@ $result = mysqli_query($konek, $query);
                         <td><img src="uploads/<?php echo $data['gambar']; ?>" alt="<?php echo $data['nama_resep']; ?>" width="100"></td>
                         <td><a href="detail_resep.php?id=<?php echo $data['id']; ?>" class="btn btn-info"><i class="fas fa-eye"></i></a></td>
                         <td>
-                            <a href="edit_resep.php?id=<?php echo $data['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <a href="unggah_resep.php?id=<?php echo $data['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                             <a href="hapus_resep.php?id=<?php echo $data['id']; ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                         </td>
                         
