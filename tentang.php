@@ -1,4 +1,4 @@
-/* Nada Istiana Habibi = mengubah tentang.php*/
+<!-- /*Nada Istiana Habibi = mengubah tentang.php*/ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
