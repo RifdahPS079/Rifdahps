@@ -1,4 +1,4 @@
-<!-- Rifdah Pritama Saputri = Membuat hapus_resep -->
+<!-- Rifdah Pritama Saputri = hapus_resep.php -->
 <?php
 session_start();
 
