@@ -1,3 +1,4 @@
+<!-- Nada istiana Habibi = membuat profil_admin.php -->
 <?php
 session_start();
 
@@ -73,7 +74,8 @@ $conn->close();
             <nav>
                 <ul class="nav-list">
                     <li><a href="index.php">Home</a></li>  
-                    <li><a href="kelolah_resep.php">Kelola Resep</a></li>           
+                    <li><a href="kelolah_resep.php">Kelola Resep</a></li> 
+                    <li><a href="kelolah_user.php">Kelola User</a></li>           
                     <li><a href="profil_admin.php">Profil Admin</a></li>
                 </ul>
             </nav>
@@ -89,7 +91,7 @@ $conn->close();
             <input type="file" id="profile-image" name="profile-image" accept="image/*">
             <button type="submit" class="edit-btn">Simpan Foto</button>
         </form>
-        
+    
         <div class="profile-info">
             <label>Nama Lengkap:</label>
             <p><?php echo $user['nama_lengkap']; ?></p>
@@ -102,8 +104,11 @@ $conn->close();
             <label>Email:</label>
             <p><?php echo $user['email']; ?></p>
         </div>
+
+        <form action="profil.php" method="POST">
+            <button type="submit" name="logout" class="logout-btn">Logout</button>
+        </form>
         
-        <button class="manage-recipes-btn" onclick="window.location.href='kelolah_resep.php'">Kelola Resep</button>
     </div>
 
     <script>
