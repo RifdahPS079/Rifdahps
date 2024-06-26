@@ -1,6 +1,7 @@
 <!-- Nurul Ulmi Mustafa= Membuat Login.php-->
 <?php
 session_start();
+require 'db_connection.php'; // Include the database connection script
 
 $login_success = false;
 $login_error = "";
@@ -10,36 +11,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
 
-    // Koneksi ke database (pastikan sesuai dengan konfigurasi database Anda)
-    $servername = "localhost";
-    $db_username = "root";
-    $db_password = "";
-    $db_name = "proyek_web";
-    $conn = new mysqli($servername, $db_username, $db_password, $db_name);
-
-    // Memeriksa koneksi
-    if ($conn->connect_error) {
-        die("Koneksi gagal: " . $conn->connect_error);
-    }
+    // Koneksi ke database
+    $conn = getDbConnection();
 
     // Query untuk memeriksa apakah username dan password cocok
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM users WHERE username=? AND password=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // Login berhasil
         $login_success = true;
 
+        // Ambil data user
+        $user = $result->fetch_assoc();
+
         // Set session variable
         $_SESSION['username'] = $username;
+        $_SESSION['role'] = $user['role'];
 
-        // Redirect user to index.php or any other desired page
-        header("Location: profil.php");
+        // Redirect user based on role
+        if ($user['role'] == 'admin') {
+            header("Location: profil_admin.php");
+        } else {
+            header("Location: profil.php");
+        }
         exit;
     } else {
         $login_error = "Username atau password salah.";
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>
@@ -68,18 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" id="password" name="password" required>
             
             <input type="submit" value="Login">
-            
-            
-            
         </form>
-        
-        <!-- Add the "Login as Admin" button -->
-        <form action="login_admin.php" method="GET">
-            <input type="submit" value="Login Sebagai Admin">
-            <p>Belum punya akun? <a href="daftar.php">Daftar disini</a></p>
-        </form>
+
+        <p>Belum punya akun? <a href="daftar.php">Daftar disini</a></p>
     </div>
 </body>
 </html>
-
-
