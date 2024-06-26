@@ -1,4 +1,97 @@
-<!-- Rifdah Pritama Saputri = mengedit unggah resep -->
+<!-- Rifdah Pritama Saputri = Membuat unggah_resep.php -->
+<?php
+session_start();
+
+// Check if the username is set in the session
+if (!isset($_SESSION['username'])) {
+    die("Error: Anda harus login terlebih dahulu.");
+}
+
+// Koneksi ke database
+$servername = "localhost";
+$username_db = "root";
+$password_db = "";
+$dbname = "proyek_web";
+
+$conn = new mysqli($servername, $username_db, $password_db, $dbname);
+
+// Periksa koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
+$success = false;
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Fetch and sanitize input
+    $nama_resep = htmlspecialchars($_POST['recipe-name']);
+    $kategori = htmlspecialchars($_POST['recipe-category']);
+    $bahan_bahan = htmlspecialchars($_POST['recipe-Bahan-Bahan']);
+    $langkah_langkah = htmlspecialchars($_POST['recipe-Langkah-Langkah']);
+    $username = $_SESSION['username']; // Fetch username from session
+
+    // Check if uploads directory exists and has write permissions
+    if (!is_dir("uploads")) {
+        mkdir("uploads", 0777, true);
+    }
+
+    if (!is_writable("uploads")) {
+        chmod("uploads", 0777);
+    }
+
+    // Validate image file type
+    $check = getimagesize($_FILES["recipe-image"]["tmp_name"]);
+    if ($check !== false) {
+        $imageFileType = strtolower(pathinfo($_FILES["recipe-image"]["name"], PATHINFO_EXTENSION));
+        $allowed_extensions = array("jpg", "jpeg", "png", "gif");
+
+        if (in_array($imageFileType, $allowed_extensions)) {
+            $gambar = basename($_FILES['recipe-image']['name']);
+            $target_dir = "uploads/";
+            $target_file = $target_dir . $gambar;
+            $uploadOk = 1;
+
+            // Check file size (optional, can be adjusted)
+            if ($_FILES["recipe-image"]["size"] > 500000) {
+                $error = "Maaf, file Anda terlalu besar (maksimal 500KB).";
+                $uploadOk = 0;
+            }
+
+            // Move uploaded file
+            if ($uploadOk == 0) {
+                $error = "Maaf, file Anda tidak dapat diunggah.";
+            } else {
+                if (move_uploaded_file($_FILES["recipe-image"]["tmp_name"], $target_file)) {
+                    // Prepare SQL query with placeholders to prevent SQL injection
+                    $sql = "INSERT INTO unggah_resep (nama_resep, kategori, bahan_bahan, langkah_langkah, gambar, username) VALUES (?, ?, ?, ?, ?, ?)";
+                    $stmt = $conn->prepare($sql);
+
+                    // Bind values to placeholders (sanitize data if needed)
+                    $stmt->bind_param("ssssss", $nama_resep, $kategori, $bahan_bahan, $langkah_langkah, $gambar, $username);
+
+                    if ($stmt->execute()) {
+                        $success = true; 
+                    } else {
+                        $error = "Error: " . $stmt->error;
+                    }
+
+                    $stmt->close();
+                } else {
+                    $error = "Maaf, terjadi kesalahan saat mengunggah file Anda.";
+                }
+            }
+        } else {
+            $error = "Maaf, hanya file JPG, JPEG, PNG, dan GIF yang diizinkan.";
+        }
+    } else {
+        $error = "File bukan gambar.";
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -12,99 +105,6 @@
     <button class="back-btn" onclick="window.history.back()">Kembali</button>
     <div class="add-recipe-form">
       <h2>Tambah Resep Makanan</h2>
-      <?php
-        $success = false;
-        $error = "";
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-          $nama_resep = $_POST['recipe-name'];
-          $kategori = $_POST['recipe-category'];
-          $bahan_bahan = $_POST['recipe-Bahan-Bahan'];
-          $langkah_langkah = $_POST['recipe-Langkah-Langkah'];
-          $user_id = $_SESSION['user_id']; // Ambil user_id dari sesi
-
-          // Check if uploads directory exists and has write permissions
-          if (!is_dir("uploads")) {
-            mkdir("uploads", 0777, true); 
-          }
-
-          if (!is_writable("uploads")) {
-            chmod("uploads", 0777); 
-          }
-
-          // Validate image file type
-          $check = getimagesize($_FILES["recipe-image"]["tmp_name"]);
-          if ($check !== false) {
-            $imageFileType = strtolower(pathinfo($_FILES["recipe-image"]["name"], PATHINFO_EXTENSION));
-            $allowed_extensions = array("jpg", "jpeg", "png", "gif");
-
-            if (in_array($imageFileType, $allowed_extensions)) {
-
-              $gambar = $_FILES['recipe-image']['name'];
-              $target_dir = "uploads/";
-              $target_file = $target_dir . basename($gambar);
-              $uploadOk = 1;
-
-              // Check file size (optional, can be adjusted)
-              if ($_FILES["recipe-image"]["size"] > 500000) {
-                $error = "Maaf, file Anda terlalu besar (maksimal 500KB).";
-                $uploadOk = 0;
-              }
-
-              // Move uploaded file
-              if ($uploadOk == 0) {
-                $error = "Maaf, file Anda tidak dapat diunggah.";
-              } else {
-                if (move_uploaded_file($_FILES["recipe-image"]["tmp_name"], $target_file)) {
-
-                  // Database connection details (replace with your actual credentials)
-                  $servername = "localhost";
-                  $db_username = "root";
-                  $db_password = "";
-                  $db_name = "proyek_web"; // Update with your database name
-
-                  $id = $_GET['id'];
-
-                  $query = mysqli_query($conn, "SELECT * FROM umggah_resep WHERE id = $id");
-                  $detail = mysqli_fetch_assoc($query);
-                  
-
-                  // Create connection
-                  $conn = new mysqli($servername, $db_username, $db_password, $db_name);
-
-                  // Check connection
-                  if ($conn->connect_error) {
-                    $error = "Koneksi gagal: " . $conn->connect_error;
-                  } else {
-
-                    // Prepare SQL query with placeholders to prevent SQL injection
-                    $sql = "INSERT INTO unggah_resep (nama_resep, kategori, bahan_bahan, langkah_langkah, gambar) VALUES (?, ?, ?, ?, ?)";
-                    $stmt = $conn->prepare($sql);
-
-                    // Bind values to placeholders (sanitize data if needed)
-                    $stmt->bind_param("sssss", $nama_resep, $kategori, $bahan_bahan, $langkah_langkah, $gambar);
-
-                    if ($stmt->execute()) {
-                      $success = true;
-                    } else {
-                      $error = "Error: " . $sql . "<br>" . $conn->error;
-                    }
-
-                    $stmt->close();
-                    $conn->close();
-                  }
-                } else {
-                  $error = "Maaf, terjadi kesalahan saat mengunggah file Anda.";
-                }
-              }
-            } else {
-              $error = "Maaf, hanya file JPG, JPEG, PNG, dan GIF yang diizinkan.";
-            }
-          } else {
-            $error = "File bukan gambar.";
-          }
-        }
-      ?>
 
       <?php if ($success): ?>
         <div id="success-message">
@@ -114,13 +114,11 @@
         <div id="error-message">
           <p><?php echo $error; ?></p>
         </div>
-        
       <?php endif; ?>
 
       <form id="recipe-form" method="POST" enctype="multipart/form-data">
         <label for="recipe-name">Nama Resep:</label>
         <input type="text" id="recipe-name" name="recipe-name" required>
-        <value="?>=$detail['nama_resep']?>">
 
         <label for="recipe-category">Kategori:</label>
         <select id="recipe-category" name="recipe-category" required>
