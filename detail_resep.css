@@ -1,3 +1,4 @@
+/* Rifdah Pritama Saputri = Membuat detail_resep.css */
 /* styles.css */
 
 body { 
@@ -31,8 +32,8 @@ header {
     margin-right: auto;
     display: none;
 }
-    
-    
+
+
 .nav-list li,
 .nav-log li {
     display: inline-block;
@@ -110,7 +111,7 @@ header {
     .hero h2 {
         font-size: 28px;
     }
-    
+
     .hero p {
         font-size: 15px;
     }
