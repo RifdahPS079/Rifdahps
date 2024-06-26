@@ -1,4 +1,4 @@
-<!-- Nurul Ulmi Mustafa= Membuat Profil.php-->
+<!-- Rifdah Pritama Saputri = Membuat profil.php -->
 <?php
 session_start();
 
@@ -34,10 +34,10 @@ if ($result->num_rows > 0) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle file upload
-    if(isset($_FILES['profile-image'])) {
+    if (isset($_FILES['profile-image'])) {
         $file_name = $_FILES['profile-image']['name'];
         $file_tmp = $_FILES['profile-image']['tmp_name'];
-        move_uploaded_file($file_tmp, "uploads/".$file_name);
+        move_uploaded_file($file_tmp, "uploads/" . $file_name);
 
         // Update the profile picture in the database
         $sql_update = "UPDATE users SET foto_profil='$file_name' WHERE username='$username'";
@@ -47,6 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error updating record: " . $conn->error;
         }
+    }
+
+    // Handle logout
+    if (isset($_POST['logout'])) {
+        session_destroy();
+        header('Location: login.php');
+        exit;
     }
 }
 
@@ -59,15 +66,15 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="prof.css">
-    <title>Recipe Website - By Web Coding</title>
+    <title>Profil Pengguna - Recipe Website</title>
 </head>
 <body>
     <header>
-        <div class="container"> 
+        <div class="container">
             <h1 class="logo">FoodRecipes</h1>
             <nav>
                 <ul class="nav-list">
-                    <li><a href="index.php">Home</a></li>             
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="tentang.php">Tentang</a></li>
                     <li><a href="unggah_resep.php">Unggah Resep</a></li>
                     <li><a href="profil.php">Profil</a></li>
@@ -79,13 +86,13 @@ $conn->close();
     <div class="profile-container">
         <button class="back-btn" onclick="window.history.back()">Kembali</button>
         <h2>Profil Pengguna</h2>
-        
+
         <img src="uploads/<?php echo $user['foto_profil']; ?>" alt="Foto Profil" class="profile-picture" id="profile-pic">
         <form action="profil.php" method="POST" enctype="multipart/form-data">
-            <input type="file" id="profile-image" name="profile-image" accept="image/*">
+            <input type="file" id="profile-image" name="profile-image" accept="image/*" onchange="uploadProfileImage()">
             <button type="submit" class="edit-btn">Simpan Foto</button>
         </form>
-        
+
         <div class="profile-info">
             <label>Nama Lengkap:</label>
             <p><?php echo $user['nama_lengkap']; ?></p>
@@ -98,29 +105,32 @@ $conn->close();
             <label>Email:</label>
             <p><?php echo $user['email']; ?></p>
         </div>
-        
-    
-        <button class="saved-recipes-btn" onclick="window.location.href='simpan_resep.php'">Resep yang Disimpan</button>
-        <button class="recipe-btn" onclick="window.location.href='resep_saya.php'">Lihat Resep</button>
-    </div>
 
-   
+        <button class="recipe-btn" onclick="window.location.href='resep_yang_disimpan.php'">Resep yang disimpan</button>
+        <button class="recipe-btn" onclick="window.location.href='resep_saya.php'">Lihat Resep</button>
+
+        <form action="profil.php" method="POST">
+            <button type="submit" name="logout" class="logout-btn">Logout</button>
+           
+        </form>
+
+    </div>
 
     <script>
     function uploadProfileImage() {
-      const fileInput = document.getElementById('profile-image');
-      const file = fileInput.files[0];
-      const reader = new FileReader();
+        const fileInput = document.getElementById('profile-image');
+        const file = fileInput.files[0];
+        const reader = new FileReader();
 
-      reader.onload = function(event) {
-        document.getElementById("profile-pic").src = event.target.result;
-      };
+        reader.onload = function(event) {
+            document.getElementById("profile-pic").src = event.target.result;
+        };
 
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        alert('Silakan pilih file gambar.');
-      }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            alert('Silakan pilih file gambar.');
+        }
     }
     </script>
 </body>
